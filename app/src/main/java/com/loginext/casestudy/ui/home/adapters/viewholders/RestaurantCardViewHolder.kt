@@ -8,10 +8,10 @@ import androidx.core.text.HtmlCompat.FROM_HTML_MODE_LEGACY
 import androidx.core.text.HtmlCompat.fromHtml
 import androidx.core.view.setPadding
 import coil.load
-import com.loginext.casestudy.databinding.RestaurantCardLayoutBinding
-import com.loginext.casestudy.exts.imageGetter
 import com.loginext.casestudy.data.models.OfferCollection
 import com.loginext.casestudy.data.models.Restaurant
+import com.loginext.casestudy.databinding.RestaurantCardLayoutBinding
+import com.loginext.casestudy.exts.imageGetter
 import com.loginext.casestudy.ui.home.adapters.BaseAdapter
 
 class RestaurantCardViewHolder(var binding: RestaurantCardLayoutBinding) : BaseAdapter.BaseViewHolder<Restaurant>(binding) {

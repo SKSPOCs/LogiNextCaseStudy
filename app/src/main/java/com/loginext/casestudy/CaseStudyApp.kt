@@ -11,13 +11,10 @@ class CaseStudyApp : Application(), ImageLoaderFactory {
     }
 
     override fun newImageLoader(): ImageLoader {
-        return ImageLoader.Builder(this).crossfade(true)
-            .placeholder(R.drawable.ic_image_placeholder)
-//            .memoryCache {
-//                MemoryCache.Builder(this).maxSizePercent(0.5).build()
-//            }.diskCache {
-//                DiskCache.Builder().maxSizePercent(0.02).build()
-//            }
+        return ImageLoader.Builder(this)
+            .networkObserverEnabled(true)
+            .placeholder(R.drawable.placeholder)
+            .error(R.drawable.placeholder)
             .build()
     }
 }

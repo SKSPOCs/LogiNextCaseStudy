@@ -3,8 +3,8 @@ package com.loginext.casestudy.ui.home.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import coil.load
-import com.loginext.casestudy.databinding.CollectionItemLayoutBinding
 import com.loginext.casestudy.data.models.OfferCollection
+import com.loginext.casestudy.databinding.CollectionItemLayoutBinding
 
 class CollectionAdapter :
     BaseAdapter<CollectionAdapter.CollectionItemViewHolder, OfferCollection>() {
