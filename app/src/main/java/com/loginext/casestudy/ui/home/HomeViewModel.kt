@@ -1,0 +1,6 @@
+package com.loginext.casestudy.ui.home
+
+import androidx.lifecycle.ViewModel
+
+class HomeViewModel : ViewModel() {
+}
