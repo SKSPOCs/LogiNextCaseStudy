@@ -42,12 +42,12 @@
 - All the elements are driven through RecyclerView except Banners.
 - Banner are driven through ViewPager2.
 - Section after collection is again dynamic in nature using nested recycler view for horizontal scrolling and vertical scrolling
-    - Recommended & Sales restaurants are dynamic
-    - Even if there are few more category comes through API, api will adjust accordingly.
-    - There is another RecyclerView in RestaurantCollection which is used for horizontal scrolling. ***(Hence Custom Component Not required.)***
+  - Recommended & Sales restaurants are dynamic
+  - Even if there are few more category comes through API, api will adjust accordingly.
+  - There is another RecyclerView in RestaurantCollection which is used for horizontal scrolling. ***(Hence Custom Component Not required.)***
 
   ### Permission Required
-    - Full Internet Access.
+  - Full Internet Access.
 
 
 
@@ -81,10 +81,11 @@ Note:
 
 - Open Android Studio
 - File --> New --> Project From Version Control
-    - Select Git
-    - Enter URL (https://github.com/SKSPOCs/LogiNextCaseStudy/)
-    - Select your desire directory to clone the project.
-    - Open project in New Window
+  - Select Git
+  - Enter URL (https://github.com/SKSPOCs/LogiNextCaseStudy/)
+  - Select your desire directory to clone the project.
+  - Open project in New Window
+- Update your Android SDK path to local.properties file
 - Build -> Make Project
 - Run -> Run App. -> Select Target Device. -> Run
 
@@ -92,6 +93,7 @@ Note:
 
 - Open Android Studio
 - File --> Open --> Select the Project Folder
+- Update your Android SDK path to local.properties file
 - Build -> Make Project
 - Run -> Run App. -> Select Target Device. -> Run
 
