@@ -1,4 +1,4 @@
-package com.loginext.casestudy.models
+package com.loginext.casestudy.data.models
 
 data class RestaurantCollection(
     val name: String,

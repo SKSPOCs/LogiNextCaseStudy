@@ -6,15 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
-import com.google.gson.Gson
 import com.loginext.casestudy.R
 import com.loginext.casestudy.databinding.HomeFragmentBinding
-import com.loginext.casestudy.models.ApiResponse
 import com.loginext.casestudy.ui.home.adapters.BannerAdapter
 import com.loginext.casestudy.ui.home.adapters.CollectionAdapter
 import com.loginext.casestudy.ui.home.adapters.FoodCategoryAdapter
@@ -29,28 +28,42 @@ class HomeFragment : Fragment() {
     private lateinit var collectionAdapter: CollectionAdapter
     private lateinit var restaurantListingAdapter: RestaurantsListingAdapter
 
-    private lateinit var apiResponse: ApiResponse
+    private val viewModel: HomeViewModel by viewModels()
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         _binding = HomeFragmentBinding.inflate(inflater, container, false)
-
-        // Only for Dev
-        apiResponse = Gson().fromJson(readJsonFromAssets(), ApiResponse::class.java)
         setupViews()
         return binding.root
     }
 
+
     private fun setupViews() {
+
         setupSearchView()
         setupBannerView()
         setupFoodCategoryView()
         setupVoucherMessage()
         setupCollections()
         setupRestaurantCollections()
+
+        subscribeData()
+        viewModel.getRestaurantData()
+
+
     }
+
+
+    private fun subscribeData() {
+        viewModel.banners.observe(requireActivity()) { bannerAdapter.reloadData(it) }
+        viewModel.collections.observe(requireActivity()) { collectionAdapter.reloadData(it) }
+        viewModel.foodCategory.observe(requireActivity()) { foodCategoryAdapter.reloadData(it) }
+        viewModel.restaurantListing.observe(requireActivity()) { restaurantListingAdapter.reloadData(it) }
+        viewModel.voucherCount.observe(requireActivity()) { setupVoucherMessage(it) }
+    }
+
 
     private fun setupSearchView() {
         binding.searchView.setOnEditorActionListener { _, actionId, event ->
@@ -59,8 +72,6 @@ class HomeFragment : Fragment() {
                 IME_ACTION_SEARCH, IME_ACTION_DONE, IME_ACTION_GO, IME_ACTION_NEXT -> {
                     binding.searchView.setText(event.displayLabel.toString())
                     // TODO ("API Call for search functionality")
-
-
                 }
                 else -> {}
             }
@@ -82,8 +93,6 @@ class HomeFragment : Fragment() {
 
             getChildAt(0)?.overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
-
-        bannerAdapter.reloadData(apiResponse.banners)
     }
 
     private fun getBannerPageTransform(): CompositePageTransformer {
@@ -93,20 +102,19 @@ class HomeFragment : Fragment() {
 
         val transformer = CompositePageTransformer()
         transformer.addTransformer(MarginPageTransformer(marginPx))
-        transformer.addTransformer { page, position ->
+        transformer.addTransformer { _, position ->
             if (position <= 0) {
                 binding.bannerPager.setPadding(offsetPx, 0, 0, 0)
             } else {
                 binding.bannerPager.setPadding(0, 0, offsetPx, 0)
             }
         }
-
         return transformer
 
     }
 
-    private fun setupVoucherMessage() {
-        binding.voucherMessage.text = "You have 5 voucher here"
+    private fun setupVoucherMessage(count: Int = 0) {
+        binding.voucherMessage.text = "You have $count voucher here"
     }
 
 
@@ -120,7 +128,6 @@ class HomeFragment : Fragment() {
             adapter = foodCategoryAdapter
         }
 
-        foodCategoryAdapter.reloadData(apiResponse.foodCategories)
 
     }
 
@@ -131,7 +138,6 @@ class HomeFragment : Fragment() {
             adapter = collectionAdapter
             suppressLayout(true)
         }
-        collectionAdapter.reloadData(apiResponse.offerCollection)
     }
 
     private fun setupRestaurantCollections() {
@@ -145,8 +151,6 @@ class HomeFragment : Fragment() {
             }
             adapter = restaurantListingAdapter
         }
-
-        restaurantListingAdapter.reloadData(apiResponse.restaurantCollections)
     }
 
 
@@ -154,16 +158,5 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
-    private fun readJsonFromAssets(): String {
-        val apiResponse = resources.assets.open("api_response.json")
-        val size = apiResponse.available()
-        val buffer = ByteArray(size)
-        apiResponse.read(buffer)
-        apiResponse.close()
-        return String(buffer, Charsets.UTF_8)
-    }
-
 
 }

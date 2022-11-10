@@ -4,7 +4,7 @@ import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.loginext.casestudy.databinding.RestaurantListingItemLayoutBinding
-import com.loginext.casestudy.models.RestaurantCollection
+import com.loginext.casestudy.data.models.RestaurantCollection
 import com.loginext.casestudy.ui.home.adapters.viewholders.RestaurantCollectionViewHolder
 
 class RestaurantsListingAdapter(private val activity: Activity) : BaseAdapter<RestaurantCollectionViewHolder, RestaurantCollection>() {

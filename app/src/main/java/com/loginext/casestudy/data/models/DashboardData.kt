@@ -1,8 +1,8 @@
-package com.loginext.casestudy.models
+package com.loginext.casestudy.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class ApiResponse(
+data class DashboardData(
     val banners: List<Banner>,
     @SerializedName("food_categories")
     val foodCategories: List<FoodCategory>,

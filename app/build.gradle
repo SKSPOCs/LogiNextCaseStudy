@@ -77,18 +77,21 @@ dependencies {
 
 
     implementation "androidx.lifecycle:lifecycle-viewmodel:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-livedata:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-common-java8:2.5.1"
-
-    // kotlin dependencies
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-livedata:2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.5.1"
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.5.1"
 
 
     // images loading
     implementation "io.coil-kt:coil:2.2.2"
+
+    // Network calls
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.5.0"
 
     // JSON Parsing
     implementation "com.google.code.gson:gson:2.10"

@@ -3,7 +3,7 @@ package com.loginext.casestudy.ui.home.adapters.viewholders
 import android.app.Activity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loginext.casestudy.databinding.RestaurantListingItemLayoutBinding
-import com.loginext.casestudy.models.RestaurantCollection
+import com.loginext.casestudy.data.models.RestaurantCollection
 import com.loginext.casestudy.ui.home.adapters.BaseAdapter
 import com.loginext.casestudy.ui.home.adapters.RestaurantCardAdapter
 

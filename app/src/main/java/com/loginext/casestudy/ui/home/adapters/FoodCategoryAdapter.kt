@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import coil.load
 import com.loginext.casestudy.databinding.FoodCategoryItemLayoutBinding
-import com.loginext.casestudy.models.FoodCategory
+import com.loginext.casestudy.data.models.FoodCategory
 
 class FoodCategoryAdapter :
     BaseAdapter<FoodCategoryAdapter.FoodCategoryViewHolder, FoodCategory>() {

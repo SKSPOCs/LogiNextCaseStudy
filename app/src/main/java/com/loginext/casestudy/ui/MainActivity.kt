@@ -30,8 +30,11 @@ class MainActivity() : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
         supportActionBar?.title = "Home"
+        supportActionBar?.setIcon(R.drawable.ic_location)
         setupBottomNav()
         onBackPressHandle()
+
+
     }
 
     private fun onBackPressHandle() {

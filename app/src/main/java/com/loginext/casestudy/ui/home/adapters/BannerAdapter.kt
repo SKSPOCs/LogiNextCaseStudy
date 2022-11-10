@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import coil.load
 import com.loginext.casestudy.databinding.BannerItemLayoutBinding
-import com.loginext.casestudy.models.Banner
+import com.loginext.casestudy.data.models.Banner
 
 class BannerAdapter : BaseAdapter<BannerAdapter.BannerViewHolder, Banner>() {
 

@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import coil.load
 import com.loginext.casestudy.databinding.CollectionItemLayoutBinding
-import com.loginext.casestudy.models.OfferCollection
+import com.loginext.casestudy.data.models.OfferCollection
 
 class CollectionAdapter :
     BaseAdapter<CollectionAdapter.CollectionItemViewHolder, OfferCollection>() {
