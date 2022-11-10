@@ -122,9 +122,7 @@ class HomeFragment : Fragment() {
         foodCategoryAdapter = FoodCategoryAdapter()
 
         binding.foodCategoriesView.apply {
-            layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false).apply {
-                stackFromEnd = true
-            }
+            layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
             adapter = foodCategoryAdapter
         }
 

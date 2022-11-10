@@ -5,15 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/searchView"
             style="@style/search_view"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints="no"
             android:labelFor="@id/searchView"
@@ -23,93 +23,101 @@
             app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/bannerPager"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchView" />
+            android:layout_height="match_parent"
+            android:paddingStart="16dp">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/foodCategoriesView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/bannerPager" />
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/bannerPager"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/voucher_view"
-            style="@style/voucher"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/foodCategoriesView">
-
-
-            <ImageView
-                style="@style/voucher.text.images"
-                android:layout_weight="0"
-                app:srcCompat="@drawable/ic_voucher" />
-
-            <TextView
-                android:id="@+id/voucherMessage"
-                style="@style/voucher.text"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/foodCategoriesView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bannerPager" />
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/voucher_view"
+                style="@style/voucher"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center_vertical"
-                android:singleLine="true"
-                android:text="Hello World" />
-
-            <ImageView
-                style="@style/voucher.text.images"
-
-                android:layout_weight="0"
-                app:srcCompat="@drawable/ic_right_arrow" />
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <TextView
-            android:id="@+id/headingCollection"
-            style="@style/heading"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/heading_collections"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/voucher_view" />
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/foodCategoriesView">
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/collectionRView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+                <ImageView
+                    style="@style/voucher.text.images"
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/ic_voucher" />
 
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/headingCollection" />
+                <TextView
+                    android:id="@+id/voucherMessage"
+                    style="@style/voucher.text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:text="Hello World" />
+
+                <ImageView
+                    style="@style/voucher.text.images"
+
+                    android:layout_weight="0"
+                    app:srcCompat="@drawable/ic_right_arrow" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@+id/headingCollection"
+                style="@style/heading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_collections"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/voucher_view" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recommendedItemsView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/collectionRView" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/collectionRView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/headingCollection" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recommendedItemsView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/collectionRView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>
