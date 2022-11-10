@@ -136,7 +136,7 @@ class HomeFragment : Fragment() {
         binding.collectionRView.apply {
             layoutManager = GridLayoutManager(requireActivity(), 2)
             adapter = collectionAdapter
-            suppressLayout(true)
+//            suppressLayout(true)
         }
     }
 
